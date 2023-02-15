@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-    background-color: orangered;
+    background-color: gray;
     width: 500px;
     position: absolute;
     left: 35%;
@@ -28,7 +28,10 @@ body {
 
 input[type=text],
 input[type=phone],
-input[type=email] {
+input[type=email]
+input[type=accountno]
+input[type=amount]
+input[type=address] {
     width: 100%;
     padding: 10px;
     margin: 5px 0 22px 0;
@@ -39,7 +42,10 @@ input[type=email] {
 
 input[type=text]:focus,
 input[type=phone]:focus,
-input[type=email]:focus {
+input[type=email]:focus 
+input[type=accountno]:focus
+input[type=amount]:focus
+input[type=address]:focus{
     background-color: #ddd;
     outline: none;
 }

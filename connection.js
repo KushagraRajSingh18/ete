@@ -4,8 +4,8 @@ const con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
-    database: "youtube",
-    port: 3308
+    database: "crud_app",
+    port: 3306
 });
 
 con.connect((err) => {

@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3004
+const port = 3000
 const mysql = require("./connection").con
     // configuration
 app.set("view engine", "hbs");
@@ -31,7 +31,7 @@ app.get("/delete", (req, res) => {
 
 });
 app.get("/view", (req, res) => {
-    let qry = "select * from test ";
+    let qry = "select * from student ";
     mysql.query(qry, (err, results) => {
         if (err) throw err
         else {
@@ -43,13 +43,13 @@ app.get("/view", (req, res) => {
 });
 
 
-app.get("/addstudent", (req, res) => {
+app.get("/addcustomer", (req, res) => {
     // fetching data from form
-    const { name, phone, email, gender } = req.query
+    const { name, accountno, phone, emailid, amount, address, gender } = req.query
 
     // Sanitization XSS...
-    let qry = "select * from test where emailid=? or phoneno=?";
-    mysql.query(qry, [email, phone], (err, results) => {
+    let qry = "select * from student where emailid=? or phone=?";
+    mysql.query(qry, [emailid, phone], (err, results) => {
         if (err)
             throw err
         else {
@@ -59,8 +59,8 @@ app.get("/addstudent", (req, res) => {
             } else {
 
                 // insert query
-                let qry2 = "insert into test values(?,?,?,?)";
-                mysql.query(qry2, [name, phone, email, gender], (err, results) => {
+                let qry2 = "insert into student values(?,?,?,?,?,?,?)";
+                mysql.query(qry2, [name,accountno, phone, emailid, amount, address, gender], (err, results) => {
                     if (results.affectedRows > 0) {
                         res.render("add", { mesg: true })
                     }
@@ -71,13 +71,13 @@ app.get("/addstudent", (req, res) => {
 });
 
 
-app.get("/searchstudent", (req, res) => {
+app.get("/searchcustomer", (req, res) => {
     // fetch data from the form
 
 
     const { phone } = req.query;
 
-    let qry = "select * from test where phoneno=?";
+    let qry = "select * from student where phone=?";
     mysql.query(qry, [phone], (err, results) => {
         if (err) throw err
         else {
@@ -97,7 +97,7 @@ app.get("/updatesearch", (req, res) => {
 
     const { phone } = req.query;
 
-    let qry = "select * from test where phoneno=?";
+    let qry = "select * from student where phone=?";
     mysql.query(qry, [phone], (err, results) => {
         if (err) throw err
         else {
@@ -112,13 +112,13 @@ app.get("/updatesearch", (req, res) => {
         }
     });
 })
-app.get("/updatestudent", (req, res) => {
+app.get("/updatecustomer", (req, res) => {
     // fetch data
 
-    const { phone, name, gender } = req.query;
-    let qry = "update test set username=?, gender=? where phoneno=?";
+    const { phone, name, gender ,emailid,amount,address} = req.query;
+    let qry = "update student set name=?, gender=?,emailid=?,amount=amount+?,address=? where phone=?";
 
-    mysql.query(qry, [name, gender, phone], (err, results) => {
+    mysql.query(qry, [name, gender,emailid,amount,address, phone], (err, results) => {
         if (err) throw err
         else {
             if (results.affectedRows > 0) {
@@ -129,14 +129,14 @@ app.get("/updatestudent", (req, res) => {
 
 });
 
-app.get("/removestudent", (req, res) => {
+app.get("/removecustomer", (req, res) => {
 
     // fetch data from the form
 
 
     const { phone } = req.query;
 
-    let qry = "delete from test where phoneno=?";
+    let qry = "delete from student where phone=?";
     mysql.query(qry, [phone], (err, results) => {
         if (err) throw err
         else {

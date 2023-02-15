@@ -23,8 +23,11 @@
     <tr>
       
       <th scope="col">User Name</th>
+      <th scope="col">Account Number</th>
       <th scope="col">Phone No</th>
       <th scope="col">Email Id</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Address</th>
        <th scope="col">Gender</th>
     </tr>
   </thead>
@@ -32,9 +35,12 @@
       {{#data}}
     <tr>
      
-      <td>{{username}}</td>
-      <td>{{phoneno}}</td>
+      <td>{{name}}</td>
+      <td>{{accountno}}</td>
+      <td>{{phone}}</td>
       <td>{{emailid}}</td>
+      <td>{{amount}}</td>
+      <td>{{address}}</td>
       <td>{{gender}}</td>
     </tr>
     {{/data}}

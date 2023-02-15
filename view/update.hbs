@@ -10,14 +10,14 @@
 <body>
     <div class="">
       <form action="/updatesearch">
-   <h3>SEARCH STUDENT</h3>
+   <h3>SEARCH ACCOUNT</h3>
    
     <hr>
  
     <label for="phn"><b>Phone no</b></label>
     <input type="phone" style="width:200px;" placeholder="type phone no to be searched" name="phone" id="phone" required>
 
-    <button type="submit" class="registerbtn">SEACRH STUDENT</button>
+    <button type="submit" class="registerbtn">SEACRH ACCOUNT</button>
     <a href="./" style="color:black">BACK TO HOME PAGE</a>
 
     <br>
@@ -37,16 +37,41 @@
 
 {{#if mesg1}}
        <div class="container">
-       <form action="/updatestudent"  >
-   <h3>UPDATE STUDENT</h3>
+       <form action="/updatecustomer"  >
+   <h3>UPDATE ACCOUNT</h3>
    
     <hr>
 {{#data}}
-    <label for="name"><b>Student name</b></label>
-    <input type="text" placeholder="Enter Name" name="name" value="{{username}}" id="name" required>
+  <label for="name"><b>Student name</b></label>
+    <input type="text" placeholder="Enter Name" name="name" value="{{name}}" id="name" required>
+   
+    <label for="accountno"><b>Account no</b></label>
+    <input type="phone" placeholder="Enter Account Number" name="accountno" value="{{accountno}}" id="accountno" required>
+    
+    <label for="phn"><b>Phone no</b></label>
+    <input type="phone" placeholder="Enter Phone Number" name="phone" value="{{phone}}" id="phone" required readonly>
+
+    <label for="eml-id"><b>Email Id</b></label>
+    <input type="phone" placeholder="Enter Email Id" name="emailid" value="{{emailid}}" id="emailid" required>
+   
+    <label for="amount"><b>Amount</b></label>
+    <input type="phone" placeholder="Enter Amount" name="amount" value="{{amount}}" id="amount" required>
+
+    <label for="address"><b>Address</b></label>
+    <input type="phone" placeholder="Enter Address" name="address" value="{{address}}" id="address" required>
+
+  <div class="gender_g">
+     <strong>Gender</strong>
+     <input type="radio" name="gender" id="" value="Male"> Male
+     <input type="radio" name="gender" id=""  value="Female">  Female
+  </div>
+    <button type="submit" class="registerbtn">UPDATE CUSTOMER</button>
+
+    {{!-- <label for="name"><b>Student name</b></label>
+    <input type="text" placeholder="Enter Name" name="name" value="{{name}}" id="name" required>
 
     <label for="phn"><b>Phone no</b></label>
-    <input type="phone" placeholder="Enter Phone Number" name="phone" value="{{phoneno}}" id="phone" required readonly>
+    <input type="phone" placeholder="Enter Phone Number" name="phone" value="{{phone}}" id="phone" required readonly>
 
     <label for="eml-id"><b>Email Id</b></label>
     <input type="email" placeholder="Enter Email Id" name="email" value="{{emailid}}" id="email" required readonly>
@@ -56,7 +81,7 @@
      <input type="radio" name="gender" id="" value="Male"> Male
      <input type="radio" name="gender" id=""  value="Female">  Female
   </div>
-    <button type="submit" class="registerbtn">UPDATE STUDENT</button>
+    <button type="submit" class="registerbtn">UPDATE STUDENT</button> --}}
 {{/data}}
   
     <a href="./" style="color:black">BACK TO HOME PAGE</a> <br>
